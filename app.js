@@ -100,6 +100,18 @@ const isBelowMinimumOrder = () =>
 const getMinimumOrderMessage = () =>
   `Minimum order is ${formatNaira(MINIMUM_ORDER_AMOUNT)}. Please add more items to continue.`;
 
+const updateProductCardState = (productId) => {
+  const card = productGrid.querySelector(`[data-product-card="${productId}"]`);
+  if (!card) return;
+
+  const quantity = getCartItem(productId)?.quantity || 0;
+  const quantityValue = card.querySelector("[data-quantity-value]");
+  const addHint = card.querySelector("[data-add-hint]");
+
+  if (quantityValue) quantityValue.textContent = String(quantity);
+  if (addHint) addHint.textContent = quantity ? "In basket" : "Add item";
+};
+
 const setQuantity = (productId, quantity) => {
   const product = products.find((item) => item.id === productId);
   if (!product) return;
@@ -122,7 +134,9 @@ const setQuantity = (productId, quantity) => {
     });
   }
 
-  render();
+  updateProductCardState(productId);
+  renderCartSummary();
+  renderReview();
 };
 
 const categories = ["All", ...new Set(products.map((product) => product.category))];
@@ -188,7 +202,7 @@ const renderProducts = () => {
       const quantity = getCartItem(product.id)?.quantity || 0;
 
       return `
-        <article class="product-card">
+        <article class="product-card" data-product-card="${product.id}">
           <div class="product-image-wrap">
             <img class="product-image" src="${product.image}" alt="${product.name}" loading="lazy" />
             ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
@@ -203,10 +217,10 @@ const renderProducts = () => {
               <p class="product-price">${formatNaira(product.price)}</p>
             </div>
             <div class="product-actions">
-              <span class="add-hint">${quantity ? "In basket" : "Add item"}</span>
+              <span class="add-hint" data-add-hint>${quantity ? "In basket" : "Add item"}</span>
               <div class="quantity-control" aria-label="Quantity for ${product.name}">
                 <button type="button" data-action="decrease" data-product-id="${product.id}" aria-label="Decrease ${product.name} quantity">-</button>
-                <span>${quantity}</span>
+                <span data-quantity-value>${quantity}</span>
                 <button type="button" data-action="increase" data-product-id="${product.id}" aria-label="Increase ${product.name} quantity">+</button>
               </div>
             </div>

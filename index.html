@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Loop - Never run out.</title>
     <meta
       name="description"
@@ -35,6 +38,24 @@
           <a href="#faq">FAQ</a>
         </nav>
         <a class="nav-cta" href="basket.html">Start order</a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+          <a href="#how-it-works">How it works</a>
+          <a href="basket.html">Products</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#faq">FAQ</a>
+          <a class="mobile-menu-cta" href="basket.html">Start order</a>
+        </nav>
       </header>
 
       <main id="top">
@@ -227,5 +248,6 @@
         <p>Home essentials ordered online, confirmed on WhatsApp.</p>
       </footer>
     </div>
+    <script src="site.js"></script>
   </body>
 </html>

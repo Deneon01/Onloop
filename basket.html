@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Loop - Build your basket.</title>
     <meta
       name="description"
@@ -35,6 +38,25 @@
           <a href="index.html#faq">FAQ</a>
         </nav>
         <a class="nav-cta" href="#products">Start order</a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+          <a href="index.html#top">Home</a>
+          <a href="index.html#how-it-works">How it works</a>
+          <a href="#products">Products</a>
+          <a href="index.html#reviews">Reviews</a>
+          <a href="index.html#faq">FAQ</a>
+          <a class="mobile-menu-cta" href="#products">Start order</a>
+        </nav>
       </header>
 
       <main id="top">
@@ -182,6 +204,7 @@
       </div>
     </div>
 
+    <script src="site.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

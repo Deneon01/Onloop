@@ -318,6 +318,7 @@ Product card priorities:
 - Badges should be short.
 - Quantity controls must stay easy to tap.
 - Product card layout should stay as a compact two-column grid on mobile.
+- Quantity changes should update card state without re-rendering product images.
 - Avoid long descriptive copy inside product cards.
 
 ## Cart and Checkout UI
@@ -412,6 +413,8 @@ Future improvements should include:
 - Focus restoration after modal close.
 - More robust keyboard testing for product quantity controls.
 - Better screen reader validation announcements.
+
+Current mobile viewport behavior disables pinch zoom to keep the basket interface fixed-scale. Revisit this if accessibility requirements change.
 
 ## Content Voice
 
