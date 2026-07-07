@@ -521,7 +521,7 @@ h3 {
 
 .basket-controls {
   position: sticky;
-  top: calc(var(--site-header-height) + 18px);
+  top: var(--site-header-height);
   z-index: 110;
   display: grid;
   gap: 12px;
